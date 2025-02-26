@@ -8,7 +8,7 @@
 // Constructor for the MainWindow
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::R)
 {
     ui->setupUi(this);
 
@@ -16,35 +16,19 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->calculateButton, &QPushButton::clicked, this, &MainWindow::on_calculateButton_clicked);
     ui->firstName->setPlaceholderText("First Name");
     ui->firstName->setStyleSheet(
-                "font:italic;"
-                "background-color: #444444;"
-                "border: 1px solid #666666;"
-                 "background-color: #222222;"  // Dark background (light black)
-                 "color: white;"                // Text color for user-entered text
+                "    font:italic;"
                 );
     ui->lastName->setPlaceholderText("Last Name");
     ui->lastName->setStyleSheet(
-                "font:italic;"
-                "background-color: #444444;"
-                "border: 1px solid #666666;"
-                 "background-color: #222222;"  // Dark background (light black)
-                 "color: white;"                // Text color for user-entered text
+                "    font:italic;"
                 );
     ui->password->setPlaceholderText("Password");
     ui->password->setStyleSheet(
-                "font:italic;"
-                "background-color: #444444;"
-                "border: 1px solid #666666;"
-                 "background-color: #222222;"  // Dark background (light black)
-                 "color: white;"                // Text color for user-entered text
+                "    font:italic;"
                 );
     ui->birthDate->setPlaceholderText("Birth Date eg:YYYY/MM/DD");
     ui->birthDate->setStyleSheet(
-                "font:italic;"
-                "background-color: #444444;"
-                "border: 1px solid #666666;"
-                 "background-color: #222222;"  // Dark background (light black)
-                 "color: white;"                // Text color for user-entered text
+                "    font:italic;"
                 );
     ui->label->setStyleSheet(
                 "    font-size: 32px;"
@@ -56,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent) :
                 );
     ui->calculateButton->setStyleSheet(
                 "QPushButton {"
-                        "    background-color: #222222;"  /* Dark gray-black background */
+                        "    background-color: #333333;"  /* Dark gray-black background */
                         "    color: white;"                /* White text color */
                         "    border: 5px solid white;"     /* Thin white border */
                         "    border-radius: 25px;"         /* Rounded corners (more rectangular) */
@@ -66,7 +50,7 @@ MainWindow::MainWindow(QWidget *parent) :
                         "    font-size: 16px;"             /* Font size for the text */
                         "}"
                         "QPushButton:hover {"
-                        "    background-color: #444444;"  /* Lighter gray on hover */
+                        "    background-color: #555555;"  /* Lighter gray on hover */
                         "    border: 5px solid #AAAAAA;"  /* Change border color on hover */
                 "    border-radius: 25px;"         /* Rounded corners (more rectangular) */
                 "    padding: 10px;"
