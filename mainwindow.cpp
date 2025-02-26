@@ -1,4 +1,3 @@
-// mainwindow.cpp
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QString>
@@ -6,6 +5,7 @@
 #include <string>
 #include <sstream>
 
+// Constructor for the MainWindow
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -14,6 +14,46 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Connect the button to the slot
     connect(ui->calculateButton, &QPushButton::clicked, this, &MainWindow::on_calculateButton_clicked);
+    ui->firstName->setPlaceholderText("First Name");
+    ui->firstName->setStyleSheet(
+                "    font:italic;"
+                );
+    ui->lastName->setPlaceholderText("Last Name");
+    ui->lastName->setStyleSheet(
+                "    font:italic;"
+                );
+    ui->password->setPlaceholderText("Password");
+    ui->password->setStyleSheet(
+                "    font:italic;"
+                );
+    ui->birthDate->setPlaceholderText("Birth Date eg:YYYY/MM/DD");
+    ui->birthDate->setStyleSheet(
+                "    font:italic;"
+                );
+    ui->label->setStyleSheet(
+                "    font-size: 32px;"
+                "    color: white;"
+                );
+    ui->entropyLabel->setStyleSheet(
+                "    color: white;"
+                "    font: italic;"
+                );
+    ui->calculateButton->setStyleSheet(
+                "QPushButton {"
+                        "    background-color: #333333;"  /* Dark gray-black background */
+                        "    color: white;"                /* White text color */
+                        "    border: 5px solid white;"     /* Thin white border */
+                        "    border-radius: 25px;"         /* Rounded corners (more rectangular) */
+                        "    padding: 10px;"          /* Padding inside the button (larger for a more rectangular shape) */
+                "    width: 200px;"                // Width of the button (make it wider)
+                      "    height: 60px;"                // Height of the button (smaller height for oval)
+                        "    font-size: 16px;"             /* Font size for the text */
+                        "}"
+                        "QPushButton:hover {"
+                        "    background-color: #555555;"  /* Lighter gray on hover */
+                        "    border: 5px solid #AAAAAA;"  /* Change border color on hover */
+                        "}"
+        );
 }
 
 MainWindow::~MainWindow()

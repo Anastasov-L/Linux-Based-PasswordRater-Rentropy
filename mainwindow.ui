@@ -6,20 +6,26 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>426</width>
+    <height>651</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #333333;  /* Light yellow */
+}
+</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>70</y>
-      <width>160</width>
+      <x>130</x>
+      <y>200</y>
+      <width>181</width>
       <height>201</height>
      </rect>
     </property>
@@ -39,18 +45,42 @@
      <item>
       <widget class="QPushButton" name="calculateButton">
        <property name="text">
-        <string>PushButton</string>
+        <string>Calculate</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="entropyLabel">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
-        <string>TextLabel</string>
+        <string>Entropy Score:</string>
        </property>
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>140</y>
+      <width>221</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <italic>true</italic>
+     </font>
+    </property>
+    <property name="text">
+     <string>Your Details:</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -58,7 +88,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>426</width>
      <height>20</height>
     </rect>
    </property>
