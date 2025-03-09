@@ -6,6 +6,7 @@
 #include <sstream>
 #include <cmath> // For log2
 #include <iomanip>
+#include <vector>
 
 // Constructor for the MainWindow
 MainWindow::MainWindow(QWidget *parent) :
@@ -84,36 +85,100 @@ MainWindow::~MainWindow()
 
 // Slot for button click
 void MainWindow::on_calculateButton_clicked() {
-    // Retrieve inputs from the QLineEdit widgets (input fields)
+
     QString firstName = ui->firstName->text();
     QString lastName = ui->lastName->text();
     QString birthDate = ui->birthDate->text();
     QString password = ui->password->text();
-    // Calculate entropy based on the input fields
-    double entropy = calculateEntropy(firstName, lastName, password);
 
-    // Display the result in the QLabel widget
+    double entropy = calculateEntropy(firstName, lastName, password);
     std::stringstream result;
-    result.precision(2);
-    result << std::fixed << std::setprecision(2) << "Entropy Score: " << entropy;
+
+    if(entropy == 0.0){
+        result << "Please enter all credentials";
+    }else{
+        result.precision(2);
+        result << std::fixed << std::setprecision(2) << "Entropy Score: " << entropy;
+    }
+
     ui->entropyLabel->setText(QString::fromStdString(result.str()));
 }
 
-// Function to calculate entropy based on the input lengths (you can expand this logic)
+// Function to calculate entropy based on the input lengths
 double MainWindow::calculateEntropy(const QString &firstName, const QString &lastName, const QString &password) {
+    if(firstName.size()<1 || lastName.size()<1 || password.size()<1){
+        return 0.0;
+    }
     double entropy = 1.0;
-    double hasLower = 0, hasUpper = 0, hasDigit = 0, hasSpecial = 0;
+    int goal1 = firstName.size(); // goal variable for each name ->  if we get to goal variable we have a name present in password
+    int goal2 = lastName.size();
+    int curr1 = 0;
+    int curr2 = 0;
+    std::vector<QChar> container;
+    double hasLower = 0, hasUpper = 0, hasDigit = 0, hasSpecial = 0, hasName = 0;
+    //does it contain name?
+    int backer;
+
+
+    int itr=0;
     for (const QChar &ch : password) {
+
+            if(password.at(itr) == firstName.at(curr1)){
+                curr1++;
+            }else{
+                curr1 = 0;
+            }
+
+            if(password.at(itr) == lastName.at(curr2)){
+                curr2++;
+            }else{
+                curr2 = 0;
+            }
+
+
+
             if (ch.isLower()) hasLower++;
             else if (ch.isUpper()) hasUpper++;
             else if (ch.isDigit()) hasDigit++;
             else hasSpecial++;
+
+            itr++;
+
+            if(curr1 == goal1 || curr2 == goal2){  // password contains either name or lastName
+                hasName++;
+               if(curr2 == goal2){
+                   backer = lastName.size();
+                   curr2 = 0;
+               }else{
+                   backer = firstName.size();
+                   curr1 = 0;
+               }
+
+               for(int i = itr - backer; i < itr; i++){ // removing entropy from password due to the name being present
+                   if(password.at(i).isDigit()){
+                       hasDigit--;
+                   }else if(password.at(i).isUpper()){
+                       hasUpper--;
+                   }else if(password.at(i).isLower()){
+                       hasLower--;
+                   }else {
+                       hasSpecial--;
+                   }
+               }
+
+
+            }
         }
 
-        if (hasLower > 0) entropy *= pow(26.0, hasLower);
-        if (hasUpper > 0) entropy *= pow(26.0, hasUpper);
-        if (hasDigit > 0) entropy *= pow(10.0, hasDigit);
-        if (hasSpecial > 0) entropy *= pow(32.0, hasSpecial);
+
+
+
+            if (hasLower > 0) entropy *= pow(26.0, hasLower);    // final entropy calculations for now
+            if (hasUpper > 0) entropy *= pow(26.0, hasUpper);
+            if (hasDigit > 0) entropy *= pow(10.0, hasDigit);
+            if (hasSpecial > 0) entropy *= pow(32.0, hasSpecial);
+            if (hasName > 0) entropy += 1.0;
+
 
     return log2(static_cast<double>(entropy));
 }
