@@ -4,6 +4,8 @@
 #include <QMessageBox>
 #include <string>
 #include <sstream>
+#include <cmath> // For log2
+#include <iomanip>
 
 // Constructor for the MainWindow
 MainWindow::MainWindow(QWidget *parent) :
@@ -14,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Connect the button to the slot
     connect(ui->calculateButton, &QPushButton::clicked, this, &MainWindow::on_calculateButton_clicked);
+    ui->verticalLayout->setSpacing(20);
     ui->firstName->setPlaceholderText("First Name");
     ui->firstName->setStyleSheet(
                 "font:italic;"
@@ -86,23 +89,31 @@ void MainWindow::on_calculateButton_clicked() {
     QString lastName = ui->lastName->text();
     QString birthDate = ui->birthDate->text();
     QString password = ui->password->text();
-
     // Calculate entropy based on the input fields
-    int entropy = calculateEntropy(firstName, lastName, password);
+    double entropy = calculateEntropy(firstName, lastName, password);
 
     // Display the result in the QLabel widget
     std::stringstream result;
-    result << "Entropy Score: " << entropy;
+    result.precision(2);
+    result << std::fixed << std::setprecision(2) << "Entropy Score: " << entropy;
     ui->entropyLabel->setText(QString::fromStdString(result.str()));
 }
 
 // Function to calculate entropy based on the input lengths (you can expand this logic)
-int MainWindow::calculateEntropy(const QString &firstName, const QString &lastName, const QString &password) {
-    int entropy = 0;
+double MainWindow::calculateEntropy(const QString &firstName, const QString &lastName, const QString &password) {
+    double entropy = 1.0;
+    double hasLower = 0, hasUpper = 0, hasDigit = 0, hasSpecial = 0;
+    for (const QChar &ch : password) {
+            if (ch.isLower()) hasLower++;
+            else if (ch.isUpper()) hasUpper++;
+            else if (ch.isDigit()) hasDigit++;
+            else hasSpecial++;
+        }
 
-    if (firstName.length() >= 3) entropy += 2;
-    if (lastName.length() >= 3) entropy += 2;
-    if (password.length() >= 8) entropy += 4;
+        if (hasLower > 0) entropy *= pow(26.0, hasLower);
+        if (hasUpper > 0) entropy *= pow(26.0, hasUpper);
+        if (hasDigit > 0) entropy *= pow(10.0, hasDigit);
+        if (hasSpecial > 0) entropy *= pow(32.0, hasSpecial);
 
-    return entropy;
+    return log2(static_cast<double>(entropy));
 }

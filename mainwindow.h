@@ -23,7 +23,7 @@ private:
     Ui::MainWindow *ui;
 
     // Declare the calculateEntropy function here
-    int calculateEntropy(const QString &firstName, const QString &lastName, const QString &password);
+    double calculateEntropy(const QString &firstName, const QString &lastName, const QString &password);
 };
 
 #endif // MAINWINDOW_H
