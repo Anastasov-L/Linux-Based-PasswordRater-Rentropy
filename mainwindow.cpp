@@ -163,7 +163,6 @@ void MainWindow::on_calculateButton_clicked() {
     ui->entropyLabel->setText(QString::fromStdString(result.str()));
 }
 
-// Function to calculate entropy based on the input lengths
 double MainWindow::calculateEntropy(const QString &firstName, const QString &lastName, const QString &password) {
     if(firstName.size()<1 || lastName.size()<1 || password.size()<1){
         return 0.0;
@@ -174,8 +173,7 @@ double MainWindow::calculateEntropy(const QString &firstName, const QString &las
     int curr1 = 0;
     int curr2 = 0;
     std::vector<QChar> container;
-    double hasLower = 0, hasUpper = 0, hasDigit = 0, hasSpecial = 0, hasName = 0;
-    //does it contain name?
+    double hasLower = 0, hasUpper = 0, hasDigit = 0, hasSpecial = 0, hasName = 0, hasBirthY = 0 ;
     int backer;
 
 

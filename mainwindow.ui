@@ -21,10 +21,7 @@
    <string>Entropy Calculator Rentropy</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QMainWindow {
-    background-color: #333333;  /* Light yellow */
-}
-</string>
+   <string notr="true">background-color: #222222;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="verticalLayoutWidget">
@@ -33,7 +30,7 @@
       <x>130</x>
       <y>200</y>
       <width>181</width>
-      <height>201</height>
+      <height>241</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -117,7 +114,7 @@
       <x>130</x>
       <y>140</y>
       <width>221</width>
-      <height>81</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="font">

@@ -1,0 +1,4 @@
+/home/lusubu/EntropyCalculator/build/CMakeFiles/EntropyCalculator.dir
+/home/lusubu/EntropyCalculator/build/CMakeFiles/edit_cache.dir
+/home/lusubu/EntropyCalculator/build/CMakeFiles/rebuild_cache.dir
+/home/lusubu/EntropyCalculator/build/CMakeFiles/EntropyCalculator_autogen.dir
