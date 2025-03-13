@@ -4,20 +4,80 @@
 #include <QMessageBox>
 #include <string>
 #include <sstream>
-#include <cmath> // For log2
+#include <cmath>
 #include <iomanip>
 #include <vector>
+#include <QPainterPath>
+#include <QPainter>
+#include <QPainterPath>
+#include <QRegion>
+#include <QMouseEvent>
+#include "mainwindow.h"
+
 
 // Constructor for the MainWindow
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    setFixedSize(426, 651);  // Prevent resizing
+    setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint | Qt::WindowCloseButtonHint); // Remove standard window frame but keep buttons
     ui->setupUi(this);
+
+    setStyleSheet(
+            "QMainWindow {"
+            "background-color: #222222;"  // Explicitly setting transparent background
+            "    border: 4px solid #333333;"      // Bottom border style (similar to title bar)
+            "}"
+        );
+
+    QPainterPath path;
+    path.addRoundedRect(this->rect(), 20, 20);  // Adjust 20,20 for smoother corners
+    QRegion mask(path.toFillPolygon().toPolygon());
+    setMask(mask);
+
+    // Apply rounded corners mask
+       QWidget *titleBar = new QWidget(this);
+   //    titleBar->setFixedHeight(60);
+       titleBar->setFixedSize(425,30);
+       titleBar->setStyleSheet("background-color: #333333;");
+       titleBar->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed); // Make it expand across the width
+
+       QHBoxLayout *titleLayout = new QHBoxLayout(titleBar);
+       titleLayout->setContentsMargins(5, 5, 5, 5);
+       titleLayout->setSpacing(10); // Add spacing between buttons
+       // Create the label for the title text
+           QLabel *titleLabel = new QLabel("Entropy Calculator", this);
+           titleLabel->setStyleSheet(
+               "font-size: 20px; "
+               "color: white; "
+               "font-weight: bold;"
+               "background-color: transparent;"  // Explicitly setting transparent background
+           );
+       titleLabel->move(titleLabel->x() + 5, titleLabel->y() + 5);
+       titleLabel->setFixedWidth(300);
+       QSpacerItem *spacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+       QPushButton *minimizeButton = new QPushButton("-");
+       QPushButton *closeButton = new QPushButton("X");
+
+       minimizeButton->setStyleSheet("background-color: #555555; color: white; border: none; padding: 5px;");
+       closeButton->setStyleSheet("background-color: red; color: white; border: none; padding: 5px;");
+
+       connect(minimizeButton, &QPushButton::clicked, this, &MainWindow::showMinimized);
+       connect(closeButton, &QPushButton::clicked, this, &MainWindow::close);
+
+       titleLayout->addItem(spacer);  // Add spacer first
+       titleLayout->addWidget(minimizeButton);
+       titleLayout->addWidget(closeButton);
+
+       QVBoxLayout *mainLayout = new QVBoxLayout(this);
+       mainLayout->setContentsMargins(0, 0, 0, 0);
+       mainLayout->addWidget(titleBar);
 
     // Connect the button to the slot
     connect(ui->calculateButton, &QPushButton::clicked, this, &MainWindow::on_calculateButton_clicked);
     ui->verticalLayout->setSpacing(20);
+    ui->verticalLayout->setAlignment(Qt::AlignCenter);
     ui->firstName->setPlaceholderText("First Name");
     ui->firstName->setStyleSheet(
                 "font:italic;"
@@ -82,7 +142,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 // Slot for button click
 void MainWindow::on_calculateButton_clicked() {
 
@@ -181,4 +240,23 @@ double MainWindow::calculateEntropy(const QString &firstName, const QString &las
 
 
     return log2(static_cast<double>(entropy));
+}
+void MainWindow::mousePressEvent(QMouseEvent *event) {
+    if (event->button() == Qt::LeftButton) {
+        isDragging = true;
+        lastMousePosition = event->globalPos() - this->pos();
+        event->accept();
+    }
+}
+
+void MainWindow::mouseMoveEvent(QMouseEvent *event) {
+    if (isDragging && (event->buttons() & Qt::LeftButton)) {
+        move(event->globalPos() - lastMousePosition);
+        event->accept();
+    }
+}
+
+void MainWindow::mouseReleaseEvent(QMouseEvent *event) {
+    isDragging = false;
+    event->accept();
 }
