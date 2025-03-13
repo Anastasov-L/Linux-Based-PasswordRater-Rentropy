@@ -28,12 +28,13 @@ sudo pacman -S qt5-base qt5-tools qt5-multimedia
 
 ### Building
 The application comes prebuilt with the project and available for immediate use after all dependencies have been installed. If a user wants to modify the software, they can later build it using the following method:
+```
 mkdir example
 cd example
 cmake ..
 make
-
+```
 
 ### Testing
-Once the project has been built successfuly, the user can navigate to the example folder and start the application using ./EntropyCalculator
+Once the project has been built successfuly, the user can navigate to the example folder and start the application using ```./EntropyCalculator```
 Enjoy!
