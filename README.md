@@ -1,9 +1,14 @@
-# PasswordRater
-This Linux Based Program, accompanied with a simple GUI (made with Qt), is designed to give a worst case estimation of the password strength, a user has chosen. The algorithm assumes data leakage of a potential database, as well as information of said leakage being at disposal to a malicious attacker. Algorithm computes the entropy of passwords given certain context. Context being date of birth, name, surname. Usually a realistic algorithm would have to take into account easily available information on social media as well, like friend names, names of each member of close family circle, pet's name and so on. Password entropy is calculated based on multiple factors: does the name/surname of the user appear in the password?, does the password contain birth data?, does the password contain words and if so, how common are they?. Words can be exceptionally easy or hard to guess when trying to brute force a password, depending on the usage frequency. For this project I have decided to utilise a database (GIVE THE PEOPLE CREDIT!!!/Not implemented yet) consisting of each word that happens to be in the English language, accompanied with it's use frequency. Highly used words are sanctioned more, while less used words less(Not implemented yet).  
+# PasswordRater Rentropy
 
+PasswordRater is a Linux-based application equipped with a user-friendly graphical interface (developed using Qt) designed to provide an in-depth evaluation of password strength. The program offers an estimation of password security under a worst-case scenario, assuming the potential compromise of a database and access to sensitive information by a malicious actor. The algorithm calculates the entropy of a password by considering various contextual factors, including personal data such as the user's name, surname, and date of birth.
+
+Typically, a realistic password strength algorithm would also take into account publicly accessible information, such as details available on social media platforms—names of family members, friends, pets, and other personal identifiers. Password entropy is evaluated based on several criteria, including the presence of personal information (e.g., name or surname), the use of birth-related data, and the occurrence of common words.
+
+The strength of words is assessed based on their frequency of usage. Words with high frequency are considered easier to guess and thus are penalized more heavily in the password strength calculation, while less common words are given less weight. To enhance the accuracy of this assessment, the program will integrate a word frequency database sourced from Kaggle's English Word Frequency Dataset (integration pending), which includes a comprehensive list of English words along with their respective usage frequencies. This will enable a more refined evaluation, with commonly used words being more heavily penalized compared to rare ones.
+
+In summary, PasswordRater provides a robust mechanism for determining password strength by considering a wide range of factors that contribute to the potential vulnerability of passwords, offering a thorough security analysis based on realistic, real-world data.
 
 ## Dependencies
-
 Before running the application, you need to install the following Qt5 libraries:
 
 For **Ubuntu/Debian**:
