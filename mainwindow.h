@@ -27,7 +27,10 @@ private:
     bool isDragging;       // Track if mouse is pressed
     QPoint lastMousePosition;  // Store last mouse position
     // Declare the calculateEntropy function here
-    double calculateEntropy(const QString &firstName, const QString &lastName, const QString &password);
+    double calculateEntropy(const QString &firstName, const QString &lastName, const QString &password, const QString &birthDate);
+    double checkValidity(const QString firstName, const QString lastName, const QString password, const QString birthDate);
+    void checkContents(int &itr, const QString &password, const QString &firstName, const QString &lastName, const QString birthD, const QString birthM,const QString birthY,const QString birthLY,const QString birthDT, int &curr1, int &curr2, int &currY, int &currLY, int &currD, int &currM, int &currDT);
+    void passwordContains(int &itr, const QString &password, const QString &firstName, const QString &lastName, const QString &birthD, const QString &birthM, const QString &birthY,const QString &birthLY, int &curr1, int &curr2, int &currD, int &currM, int &currY, int &currLY, double &hasFN, double &hasLN, int &backer, int &goal1, int &goal2, int &goalD, int &goalM, int &goalY, int &goalLY, double &hasDigit, double &hasUpper, double &hasLower, double &hasSpecial, double &hasBirthD, double &hasBirthM, double &hasBirthY, double &hasBirthLY);
 };
 
 #endif // MAINWINDOW_H
