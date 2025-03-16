@@ -1,5 +1,5 @@
-/home/lusubu/EntropyCalculator/build/EntropyCalculator_autogen/EWIEGA46WW/moc_mainwindow.cpp: /home/lusubu/EntropyCalculator/mainwindow.h \
-  /home/lusubu/EntropyCalculator/build/EntropyCalculator_autogen/moc_predefs.h \
+/home/lusubu/EntropyCalculator/example/EntropyCalculator_autogen/EWIEGA46WW/moc_mainwindow.cpp: /home/lusubu/EntropyCalculator/mainwindow.h \
+  /home/lusubu/EntropyCalculator/example/EntropyCalculator_autogen/moc_predefs.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
   /usr/include/assert.h \

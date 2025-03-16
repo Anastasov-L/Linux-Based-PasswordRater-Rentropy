@@ -4,7 +4,7 @@
 /home/lusubu/EntropyCalculator/mainwindow.h
  mmc:Q_OBJECT
  mdp:/home/lusubu/EntropyCalculator/mainwindow.h
- mdp:/home/lusubu/EntropyCalculator/build/EntropyCalculator_autogen/moc_predefs.h
+ mdp:/home/lusubu/EntropyCalculator/example/EntropyCalculator_autogen/moc_predefs.h
  mdp:/usr/include/asm-generic/errno-base.h
  mdp:/usr/include/asm-generic/errno.h
  mdp:/usr/include/assert.h

@@ -56,7 +56,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /home/lusubu/EntropyCalculator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lusubu/EntropyCalculator/build
+CMAKE_BINARY_DIR = /home/lusubu/EntropyCalculator/example
 
 # Utility rule file for EntropyCalculator_autogen.
 
@@ -67,8 +67,8 @@ include CMakeFiles/EntropyCalculator_autogen.dir/compiler_depend.make
 include CMakeFiles/EntropyCalculator_autogen.dir/progress.make
 
 CMakeFiles/EntropyCalculator_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lusubu/EntropyCalculator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target EntropyCalculator"
-	/usr/bin/cmake -E cmake_autogen /home/lusubu/EntropyCalculator/build/CMakeFiles/EntropyCalculator_autogen.dir/AutogenInfo.json ""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lusubu/EntropyCalculator/example/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target EntropyCalculator"
+	/usr/bin/cmake -E cmake_autogen /home/lusubu/EntropyCalculator/example/CMakeFiles/EntropyCalculator_autogen.dir/AutogenInfo.json ""
 
 EntropyCalculator_autogen: CMakeFiles/EntropyCalculator_autogen
 EntropyCalculator_autogen: CMakeFiles/EntropyCalculator_autogen.dir/build.make
@@ -83,6 +83,6 @@ CMakeFiles/EntropyCalculator_autogen.dir/clean:
 .PHONY : CMakeFiles/EntropyCalculator_autogen.dir/clean
 
 CMakeFiles/EntropyCalculator_autogen.dir/depend:
-	cd /home/lusubu/EntropyCalculator/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lusubu/EntropyCalculator /home/lusubu/EntropyCalculator /home/lusubu/EntropyCalculator/build /home/lusubu/EntropyCalculator/build /home/lusubu/EntropyCalculator/build/CMakeFiles/EntropyCalculator_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lusubu/EntropyCalculator/example && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lusubu/EntropyCalculator /home/lusubu/EntropyCalculator /home/lusubu/EntropyCalculator/example /home/lusubu/EntropyCalculator/example /home/lusubu/EntropyCalculator/example/CMakeFiles/EntropyCalculator_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/EntropyCalculator_autogen.dir/depend
 

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/lusubu/EntropyCalculator/build/EntropyCalculator_autogen/mocs_compilation.cpp" "CMakeFiles/EntropyCalculator.dir/EntropyCalculator_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/EntropyCalculator.dir/EntropyCalculator_autogen/mocs_compilation.cpp.o.d"
+  "/home/lusubu/EntropyCalculator/example/EntropyCalculator_autogen/mocs_compilation.cpp" "CMakeFiles/EntropyCalculator.dir/EntropyCalculator_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/EntropyCalculator.dir/EntropyCalculator_autogen/mocs_compilation.cpp.o.d"
   "/home/lusubu/EntropyCalculator/main.cpp" "CMakeFiles/EntropyCalculator.dir/main.cpp.o" "gcc" "CMakeFiles/EntropyCalculator.dir/main.cpp.o.d"
   "/home/lusubu/EntropyCalculator/mainwindow.cpp" "CMakeFiles/EntropyCalculator.dir/mainwindow.cpp.o" "gcc" "CMakeFiles/EntropyCalculator.dir/mainwindow.cpp.o.d"
   )
