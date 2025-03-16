@@ -8,6 +8,17 @@ The strength of words is assessed based on their frequency of usage. Words with 
 
 In summary, PasswordRater provides a robust mechanism for determining password strength by considering a wide range of factors that contribute to the potential vulnerability of passwords, offering a thorough security analysis based on realistic, real-world data.
 
+## Dataset Attribution
+
+This project uses the Google Web Trillion Word Corpus dataset, which was derived from the Google Web Trillion Word Corpus (as described by Thorsten Brants and Alex Franz, and distributed by the Linguistic Data Consortium) by Peter Norvig. 
+
+- **Dataset Name**: English Word Frequency Dataset
+- **Source**: [Kaggle Dataset](https://www.kaggle.com/datasets/rtatman/english-word-frequency)
+- **Acknowledgements**: Data files were derived from the Google Web Trillion Word Corpus, and the code used to generate this dataset is distributed under the MIT License.
+
+Please refer to the dataset's Kaggle page for more details or any additional terms of use.
+
+
 ## Dependencies
 Before running the application, you need to install the following Qt5 libraries:
 
