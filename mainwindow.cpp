@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     qDebug() << "Current working directory:" << QDir::currentPath();
 
-    loadCsvIntoRadixTree("../unigram_freq.csv", radixTree);
+    loadCsvIntoRadixTree("../data/unigram_freq.csv", radixTree);
     setFixedSize(426, 651);  // Prevent resizing
     setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint | Qt::WindowCloseButtonHint); // Remove standard window frame but keep buttons
     ui->setupUi(this);
