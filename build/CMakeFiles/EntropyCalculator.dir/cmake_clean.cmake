@@ -8,6 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/EntropyCalculator.dir/main.cpp.o.d"
   "CMakeFiles/EntropyCalculator.dir/mainwindow.cpp.o"
   "CMakeFiles/EntropyCalculator.dir/mainwindow.cpp.o.d"
+  "CMakeFiles/EntropyCalculator.dir/raddix.cpp.o"
+  "CMakeFiles/EntropyCalculator.dir/raddix.cpp.o.d"
   "EntropyCalculator"
   "EntropyCalculator.pdb"
   "ui_mainwindow.h"

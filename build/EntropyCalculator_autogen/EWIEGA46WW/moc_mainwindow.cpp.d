@@ -1,5 +1,6 @@
-/home/lusubu/EntropyCalculator/example/EntropyCalculator_autogen/EWIEGA46WW/moc_mainwindow.cpp: /home/lusubu/EntropyCalculator/mainwindow.h \
-  /home/lusubu/EntropyCalculator/example/EntropyCalculator_autogen/moc_predefs.h \
+/home/lusubu/EntropyCalculator/try99/EntropyCalculator_autogen/EWIEGA46WW/moc_mainwindow.cpp: /home/lusubu/EntropyCalculator/mainwindow.h \
+  /home/lusubu/EntropyCalculator/try99/EntropyCalculator_autogen/moc_predefs.h \
+  /home/lusubu/EntropyCalculator/raddix.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
   /usr/include/assert.h \
@@ -37,6 +38,7 @@
   /usr/include/c++/11/bits/hash_bytes.h \
   /usr/include/c++/11/bits/invoke.h \
   /usr/include/c++/11/bits/ios_base.h \
+  /usr/include/c++/11/bits/istream.tcc \
   /usr/include/c++/11/bits/iterator_concepts.h \
   /usr/include/c++/11/bits/list.tcc \
   /usr/include/c++/11/bits/locale_classes.h \
@@ -124,6 +126,8 @@
   /usr/include/c++/11/initializer_list \
   /usr/include/c++/11/ios \
   /usr/include/c++/11/iosfwd \
+  /usr/include/c++/11/iostream \
+  /usr/include/c++/11/istream \
   /usr/include/c++/11/iterator \
   /usr/include/c++/11/limits \
   /usr/include/c++/11/list \

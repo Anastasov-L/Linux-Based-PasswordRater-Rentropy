@@ -60,7 +60,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /home/lusubu/EntropyCalculator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lusubu/EntropyCalculator/example
+CMAKE_BINARY_DIR = /home/lusubu/EntropyCalculator/try99
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lusubu/EntropyCalculator/example/CMakeFiles /home/lusubu/EntropyCalculator/example//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lusubu/EntropyCalculator/try99/CMakeFiles /home/lusubu/EntropyCalculator/try99//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lusubu/EntropyCalculator/example/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lusubu/EntropyCalculator/try99/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -214,6 +214,30 @@ mainwindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/EntropyCalculator.dir/build.make CMakeFiles/EntropyCalculator.dir/mainwindow.cpp.s
 .PHONY : mainwindow.cpp.s
 
+raddix.o: raddix.cpp.o
+.PHONY : raddix.o
+
+# target to build an object file
+raddix.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EntropyCalculator.dir/build.make CMakeFiles/EntropyCalculator.dir/raddix.cpp.o
+.PHONY : raddix.cpp.o
+
+raddix.i: raddix.cpp.i
+.PHONY : raddix.i
+
+# target to preprocess a source file
+raddix.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EntropyCalculator.dir/build.make CMakeFiles/EntropyCalculator.dir/raddix.cpp.i
+.PHONY : raddix.cpp.i
+
+raddix.s: raddix.cpp.s
+.PHONY : raddix.s
+
+# target to generate assembly for a file
+raddix.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EntropyCalculator.dir/build.make CMakeFiles/EntropyCalculator.dir/raddix.cpp.s
+.PHONY : raddix.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -233,6 +257,9 @@ help:
 	@echo "... mainwindow.o"
 	@echo "... mainwindow.i"
 	@echo "... mainwindow.s"
+	@echo "... raddix.o"
+	@echo "... raddix.i"
+	@echo "... raddix.s"
 .PHONY : help
 
 

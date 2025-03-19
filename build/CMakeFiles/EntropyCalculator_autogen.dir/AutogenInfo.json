@@ -1,7 +1,7 @@
 {
-	"BUILD_DIR" : "/home/lusubu/EntropyCalculator/example/EntropyCalculator_autogen",
-	"CMAKE_BINARY_DIR" : "/home/lusubu/EntropyCalculator/example",
-	"CMAKE_CURRENT_BINARY_DIR" : "/home/lusubu/EntropyCalculator/example",
+	"BUILD_DIR" : "/home/lusubu/EntropyCalculator/try99/EntropyCalculator_autogen",
+	"CMAKE_BINARY_DIR" : "/home/lusubu/EntropyCalculator/try99",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/lusubu/EntropyCalculator/try99",
 	"CMAKE_CURRENT_SOURCE_DIR" : "/home/lusubu/EntropyCalculator",
 	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
 	"CMAKE_LIST_FILES" : 
@@ -9,7 +9,7 @@
 		"/home/lusubu/EntropyCalculator/CMakeLists.txt",
 		"/usr/share/cmake-3.22/Modules/CMakeDetermineSystem.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeSystem.cmake.in",
-		"/home/lusubu/EntropyCalculator/example/CMakeFiles/3.22.1/CMakeSystem.cmake",
+		"/home/lusubu/EntropyCalculator/try99/CMakeFiles/3.22.1/CMakeSystem.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeUnixFindMake.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeDetermineCCompiler.cmake",
@@ -58,7 +58,7 @@
 		"/usr/share/cmake-3.22/Modules/CMakeFindBinUtils.cmake",
 		"/usr/share/cmake-3.22/Modules/Compiler/GNU-FindBinUtils.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeCCompiler.cmake.in",
-		"/home/lusubu/EntropyCalculator/example/CMakeFiles/3.22.1/CMakeCCompiler.cmake",
+		"/home/lusubu/EntropyCalculator/try99/CMakeFiles/3.22.1/CMakeCCompiler.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeDetermineCXXCompiler.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeDetermineCompiler.cmake",
 		"/usr/share/cmake-3.22/Modules/Platform/Linux-Determine-CXX.cmake",
@@ -104,7 +104,7 @@
 		"/usr/share/cmake-3.22/Modules/CMakeFindBinUtils.cmake",
 		"/usr/share/cmake-3.22/Modules/Compiler/GNU-FindBinUtils.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeCXXCompiler.cmake.in",
-		"/home/lusubu/EntropyCalculator/example/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake",
+		"/home/lusubu/EntropyCalculator/try99/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeGenericSystem.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake",
@@ -129,7 +129,7 @@
 		"/usr/share/cmake-3.22/Modules/CMakeDetermineCompileFeatures.cmake",
 		"/usr/share/cmake-3.22/Modules/Internal/FeatureTesting.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeCCompiler.cmake.in",
-		"/home/lusubu/EntropyCalculator/example/CMakeFiles/3.22.1/CMakeCCompiler.cmake",
+		"/home/lusubu/EntropyCalculator/try99/CMakeFiles/3.22.1/CMakeCCompiler.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake",
 		"/usr/share/cmake-3.22/Modules/Compiler/GNU-CXX.cmake",
@@ -148,7 +148,7 @@
 		"/usr/share/cmake-3.22/Modules/CMakeDetermineCompileFeatures.cmake",
 		"/usr/share/cmake-3.22/Modules/Internal/FeatureTesting.cmake",
 		"/usr/share/cmake-3.22/Modules/CMakeCXXCompiler.cmake.in",
-		"/home/lusubu/EntropyCalculator/example/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake",
+		"/home/lusubu/EntropyCalculator/try99/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake",
@@ -201,11 +201,17 @@
 			"Mu",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
+		],
+		[
+			"/home/lusubu/EntropyCalculator/raddix.h",
+			"Mu",
+			"EWIEGA46WW/moc_raddix.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "/home/lusubu/EntropyCalculator/example/EntropyCalculator_autogen/include",
-	"MOC_COMPILATION_FILE" : "/home/lusubu/EntropyCalculator/example/EntropyCalculator_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "/home/lusubu/EntropyCalculator/try99/EntropyCalculator_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/lusubu/EntropyCalculator/try99/EntropyCalculator_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_NO_DEBUG", "QT_WIDGETS_LIB" ],
 	"MOC_DEPEND_FILTERS" : 
 	[
@@ -216,7 +222,8 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"/home/lusubu/EntropyCalculator/example",
+		"/home/lusubu/EntropyCalculator/try99",
+		"/home/lusubu/EntropyCalculator",
 		"/usr/include/x86_64-linux-gnu/qt5",
 		"/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
 		"/usr/include/x86_64-linux-gnu/qt5/QtGui",
@@ -241,21 +248,22 @@
 		"-c",
 		"/usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "/home/lusubu/EntropyCalculator/example/EntropyCalculator_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "/home/lusubu/EntropyCalculator/try99/EntropyCalculator_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
-	"MOC_SKIP" : [ "/home/lusubu/EntropyCalculator/example/ui_mainwindow.h" ],
+	"MOC_SKIP" : [ "/home/lusubu/EntropyCalculator/try99/ui_mainwindow.h" ],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 8,
-	"PARSE_CACHE_FILE" : "/home/lusubu/EntropyCalculator/example/CMakeFiles/EntropyCalculator_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "/home/lusubu/EntropyCalculator/try99/CMakeFiles/EntropyCalculator_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "",
 	"QT_VERSION_MAJOR" : 5,
 	"QT_VERSION_MINOR" : 15,
-	"SETTINGS_FILE" : "/home/lusubu/EntropyCalculator/example/CMakeFiles/EntropyCalculator_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "/home/lusubu/EntropyCalculator/try99/CMakeFiles/EntropyCalculator_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[ "/home/lusubu/EntropyCalculator/main.cpp", "Mu", null ],
-		[ "/home/lusubu/EntropyCalculator/mainwindow.cpp", "Mu", null ]
+		[ "/home/lusubu/EntropyCalculator/mainwindow.cpp", "Mu", null ],
+		[ "/home/lusubu/EntropyCalculator/raddix.cpp", "Mu", null ]
 	],
 	"VERBOSITY" : 0
 }
