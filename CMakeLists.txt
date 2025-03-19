@@ -17,6 +17,7 @@ find_package(Qt5 REQUIRED COMPONENTS Widgets)
 set(SOURCES
     main.cpp
     mainwindow.cpp
+    raddix.cpp  # Include the RadixTree source file here
 )
 
 # Add the UI files and process them with UIC
@@ -30,6 +31,9 @@ qt5_wrap_ui(UI_HEADERS ${UI_FILES})
 # Include the directory where the generated ui_mainwindow.h file will be located
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
+# Include the directory where raddix.h is located
+include_directories(${CMAKE_SOURCE_DIR})  # This assumes raddix.h is in the root of the source directory
+
 # Add the executable and link the necessary files (sources, generated UI header files)
 add_executable(EntropyCalculator ${SOURCES} ${UI_HEADERS})
 
@@ -38,5 +42,6 @@ target_link_libraries(EntropyCalculator Qt5::Widgets)
 
 # Optionally: If you want to enable Qt's debug symbols, you can specify the following
 # set(CMAKE_BUILD_TYPE Debug)
+
 
 

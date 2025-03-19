@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "raddix.h"  
 #include <QString>
 #include <QMessageBox>
 #include <string>
@@ -11,13 +12,17 @@
 #include <QPainter>
 #include <QRegion>
 #include <QMouseEvent>
-
+#include <QDir>
+#include <QDebug>
 
 // Constructor for the MainWindow
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
+    QMainWindow(parent),radixTree(),
     ui(new Ui::MainWindow)
 {
+    qDebug() << "Current working directory:" << QDir::currentPath();
+
+    loadCsvIntoRadixTree("../unigram_freq.csv", radixTree);
     setFixedSize(426, 651);  // Prevent resizing
     setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint | Qt::WindowCloseButtonHint); // Remove standard window frame but keep buttons
     ui->setupUi(this);
@@ -145,7 +150,7 @@ void MainWindow::on_calculateButton_clicked() {
     ui->entropyLabel->setText(QString::fromStdString(result.str()));
 }
 
-void MainWindow::checkContents(int &itr, const QString &password, const QString &firstName, const QString &lastName,const QString birthD, const QString birthM,const QString birthY,const QString birthLY,const QString birthDT,  int &curr1, int &curr2, int &currY, int &currLY, int &currD, int &currM, int &currDT){
+void MainWindow::checkContents(int &itr,  QString &password, const QString &firstName, const QString &lastName,const QString birthD, const QString birthM,const QString birthY,const QString birthLY,const QString birthDT,  int &curr1, int &curr2, int &currY, int &currLY, int &currD, int &currM, int &currDT){
 
     if(password.at(itr) == firstName.at(curr1)){  // check if password is on track to contain firstName
         curr1++;
@@ -185,7 +190,7 @@ void MainWindow::checkContents(int &itr, const QString &password, const QString 
 
 }
 
-void MainWindow::passwordContains(int &itr, const QString &password, const QString &firstName, const QString &lastName, const QString &birthD, const QString &birthM, const QString &birthY,const QString &birthLY, int &curr1, int &curr2, int &currD, int &currM, int &currY, int &currLY, double &hasFN, double &hasLN, int &backer, int &goal1, int &goal2, int &goalD, int &goalM, int &goalY, int &goalLY, double &hasDigit, double &hasUpper, double &hasLower, double &hasSpecial, double &hasBirthD, double &hasBirthM, double &hasBirthY, double &hasBirthLY){
+void MainWindow::passwordContains(int &itr,  QString &password, const QString &firstName, const QString &lastName, const QString &birthD, const QString &birthM, const QString &birthY,const QString &birthLY, int &curr1, int &curr2, int &currD, int &currM, int &currY, int &currLY, double &hasFN, double &hasLN, int &backer, int &goal1, int &goal2, int &goalD, int &goalM, int &goalY, int &goalLY, double &hasDigit, double &hasUpper, double &hasLower, double &hasSpecial, double &hasBirthD, double &hasBirthM, double &hasBirthY, double &hasBirthLY, std::vector<int>&index, std::vector<int>&size){
 
     if(curr1 == goal1 || curr2 == goal2 || currD == goalD || currM == goalM || currY == goalY || currLY == goalLY){  // password contains personal data
 
@@ -219,7 +224,7 @@ void MainWindow::passwordContains(int &itr, const QString &password, const QStri
            currLY = 0;
        }
 
-       for(int i = itr - backer; i < itr; i++){ // removing previous entropy points from password because of present personal information (non random choice)
+       for(int i = itr - (backer - 1); i <= itr; i++){ // removing previous entropy points from password because of present personal information (non random choice)
            if(password.at(i).isDigit()){
                hasDigit--;
            }else if(password.at(i).isUpper()){
@@ -230,21 +235,23 @@ void MainWindow::passwordContains(int &itr, const QString &password, const QStri
                hasSpecial--;
            }
        }
-
-
+       index.push_back(itr - (backer-1));
+       size.push_back(itr);
+       qDebug() << itr - (backer-1) << " " << itr ;
     }                             // end of password contains epersonal data
 }
 
 double MainWindow::checkValidity(const QString firstName, const QString lastName, const QString password, const QString birthDate){
     if(firstName.size() < 1 || lastName.size() < 1 || password.size() < 1 || birthDate.size() < 1){
         return -1.0;
-    }else if(password.size()<8){
-        return -2.0;
-    }
+    }//else if(password.size()<8){
+     //   return -2.0;
+   // }
     return 0.0;
 }
 double MainWindow::calculateEntropy(const QString &firstName, const QString &lastName, const QString &password, const QString &birthDate) {
    double valid = checkValidity(firstName, lastName, password, birthDate);
+   QString passwordM = password;
     if(valid!=0){
         return valid;
     }
@@ -275,29 +282,67 @@ double MainWindow::calculateEntropy(const QString &firstName, const QString &las
 
 
     int itr=0; // iterator
-    for (const QChar &ch : password) {
-            checkContents(itr, password, firstName, lastName, birthD, birthM, birthY, birthLY, birthDT, curr1, curr2, currY, currLY, currD, currM, currDT);
+    std::vector<int>index;
+    std::vector<int>size;
+    for (int itr = 0; itr < passwordM.size(); ++itr) {
+        const QChar &ch = passwordM.at(itr); 
+            checkContents(itr, passwordM, firstName, lastName, birthD, birthM, birthY, birthLY, birthDT, curr1, curr2, currY, currLY, currD, currM, currDT);
 
             if (ch.isLower()) hasLower++;             // add symbol count bas
             else if (ch.isUpper()) hasUpper++;
             else if (ch.isDigit()) hasDigit++;
             else hasSpecial++;
 
-            itr++;
+            
 
-            passwordContains(itr, password, firstName, lastName, birthD, birthM, birthY, birthLY, curr1, curr2, currD, currM, currY, currLY, hasFN, hasLN, backer, goal1, goal2, goalD, goalM, goalY, goalLY, hasDigit, hasUpper, hasLower, hasSpecial, hasBirthD, hasBirthM, hasBirthY, hasBirthLY);
+            passwordContains(itr, passwordM, firstName, lastName, birthD, birthM, birthY, birthLY, curr1, curr2, currD, currM, currY, currLY, hasFN, hasLN, backer, goal1, goal2, goalD, goalM, goalY, goalLY, hasDigit, hasUpper, hasLower, hasSpecial, hasBirthD, hasBirthM, hasBirthY, hasBirthLY, index, size);
+            
+            
         }
 
-            if (hasLower > 0) entropy *= pow(26.0, hasLower);    // final entropy calculations for now
-            if (hasUpper > 0) entropy *= pow(26.0, hasUpper);
-            if (hasDigit > 0) entropy *= pow(10.0, hasDigit);
-            if (hasSpecial > 0) entropy *= pow(32.0, hasSpecial);
-            if (hasFN > 0) entropy *= password.size() - firstName.size() + 1;               // for a password of size n there are n+1 possible insertions of the name token. eg: Emil12, 1Emil2, 12Emil
-            if (hasLN > 0) entropy *= password.size() - firstName.size() + 1;
-            if (hasBirthD>0) entropy *= password.size() - birthD.size() + 1;
-            if (hasBirthM>0) entropy *= password.size() - birthM.size() + 1;
-            if (hasBirthY>0) entropy *= password.size() - birthY.size() + 1;
-            if (hasBirthLY>0) entropy *= password.size() - birthLY.size() + 1;
+         
+
+
+
+        const std::string find = passwordM.toStdString();
+       //
+         std::vector<std::tuple<std::string, int, int>> words  = radixTree.contains_known_words(find, index, size);
+      // if(radixTree.search(find)==-1){  
+        const double max_frequency = 23135851162.0;
+       if(words.size()==0){    // no words in password
+               
+            }else { // Words are present in the password
+
+                for (const auto& triplet : words) {
+                    std::string foundWord = std::get<0>(triplet);  // Extract word
+                    int wordFrequency = std::get<1>(triplet);      // Extract frequency
+                    int startIndex = std::get<2>(triplet);      // Extract starting index
+            
+                    if (wordFrequency > 0) {
+                        entropy *= log2(1 + max_frequency / wordFrequency);
+                    }
+
+                    for (int i = startIndex; i < startIndex + foundWord.length(); ++i) {
+                        if ((passwordM.at(i).isDigit())) hasDigit--;      // Decrement digit counter
+                     else if ((passwordM.at(i).isLower())) hasLower--; // Decrement lowercase counter
+                        else if ((passwordM.at(i).isUpper())) hasUpper--; // Decrement uppercase counter
+                        else hasSpecial--;                              // Decrement special character counter
+                    }
+                    
+                }
+            }
+    qDebug() << "hasFN: " << hasFN << " hasLN: " << hasLN << "firstname:" << firstName << "lastname:" << lastName << " " << hasLower << " " << hasUpper << " " <<hasDigit << " "<< hasBirthD << " " <<hasBirthM << " "<< hasBirthY << " "<< hasBirthLY << " ";
+                if (hasLower > 0) entropy *= pow(26.0, hasLower);                           // final entropy calculations for now
+                if (hasUpper > 0) entropy *= pow(26.0, hasUpper);
+                if (hasDigit > 0) entropy *= pow(10.0, hasDigit);
+                if (hasSpecial > 0) entropy *= pow(32.0, hasSpecial);
+                if (hasFN > 0) entropy *= 1;               
+                if (hasLN > 0) entropy *= 1;
+                if (hasBirthD>0) entropy *= password.size() - birthD.size() + 1;
+                if (hasBirthM>0) entropy *= password.size() - birthM.size() + 1;
+                if (hasBirthY>0) entropy *= password.size() - birthY.size() + 1;
+                if (hasBirthLY>0) entropy *= password.size() - birthLY.size() + 1;
+
 
 
     return log2(static_cast<double>(entropy));
